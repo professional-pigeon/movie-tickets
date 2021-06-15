@@ -75,8 +75,6 @@ $(document).ready(function() {
       }
       
     let coolTicket = new Ticket (movieName, time, age, newTicketPrice)
-    let coolTicket = new quietPlace (movieName, time, age, newTicketPrice)
-    let coolTicket = new Ticket (movieName, time, age, newTicketPrice)
     let ticketKeys = Object.keys(coolTicket);
     let ticketString = "";
     

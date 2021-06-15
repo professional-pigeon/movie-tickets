@@ -14,7 +14,7 @@ img {
 #formOne {
   color: white;
 }
-#ticketReturn {
+#ticketReturn, #button1 {
   border: 1px solid white;
   width: 40%;
   color: bisque;
