@@ -9,22 +9,15 @@ function Movie (name, time1, time2, time3, time4) {
 }
 
 function Ticket (movieInput, timeInput, ageInput, price) {
-  this.name = movieInput
-  this.time = timeInput
-  this.age = ageInput
-  this.price = price
+  this.Name = movieInput
+  this.Time = timeInput
+  this.Age = ageInput
+  this.Price = price
 }
 
-let movieArray = []
 let Titanic = new Movie("Titanic", "8:15", "12:00", "2:30", "6:00")
 let quietPlace = new Movie("A Quiet Place 2", "8:15", "12:00", "2:30", "6:00")
 let fastFurious = new Movie("Fast and Furious 9", "8:15", "12:30", "3:00", "6:30")
-
-movieArray.push(Titanic)
-movieArray.push(quietPlace)
-movieArray.push(fastFurious)
-
-
 
 //User-Interface Logic
 function attachMovieListeners(movieName) {
@@ -32,7 +25,7 @@ function attachMovieListeners(movieName) {
     let movieKeys = Object.keys(movieName);
     let movieString = "";
     movieKeys.forEach(function(key) {
-    movieString = movieString.concat(Titanic[key] + "\n"); 
+    movieString = movieString.concat(movieName[key] + "\n"); 
     });
     $("h6").text(movieString)
   });
@@ -40,15 +33,33 @@ function attachMovieListeners(movieName) {
 
 
 function attachContactListeners() {
-  $('ol#ticketReturn').on('click', 'li', function() {
-    
+  $('ol#ticketReturn').on('click', 'li', function() { 
+      alert('But have you seen Titanic?')
   })
-  }
+}
+
+// function giveMeThePrice {
+//   if (age >= 65) {
+//     newTicketPrice = ticketPrice - 3;
+//   } else if (time < 4) {
+//     newTicketPrice = ticketPrice - 2;
+//   } else {
+//     newTicketPrice = 8;
+//   }
+// }
+
+// function clickTheTime() {
+//   $("body").on('click', '8:15', function() {
+//     let time = 8
+//     let movieName = "Titanic"
+//     let age = 60
+//     giveMeThePrice
+//   });
+// };
 
 $(document).ready(function() { 
   attachContactListeners();
-  movieArray.forEach(function() {
-    attachMovieListeners();
+  attachMovieListeners(Titanic)
   $("button#button1").click(function() {
     const ticketPrice = 8;
     let newTicketPrice = 0;
@@ -64,6 +75,8 @@ $(document).ready(function() {
       }
       
     let coolTicket = new Ticket (movieName, time, age, newTicketPrice)
+    let coolTicket = new quietPlace (movieName, time, age, newTicketPrice)
+    let coolTicket = new Ticket (movieName, time, age, newTicketPrice)
     let ticketKeys = Object.keys(coolTicket);
     let ticketString = "";
     
@@ -77,6 +90,17 @@ $(document).ready(function() {
   let movieString = "";
   movieKeys.forEach(function(key) {
   movieString = movieString.concat(": " + Titanic[key] + "<br>"); 
+  
   });
-
 });
+
+
+
+
+function clickTheTime(movieName) {
+  $("body").on('click', '8:15', function() {
+    let time = 8
+    let movie = "Titanic"
+    let age = 60
+  });
+};

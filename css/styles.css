@@ -1,4 +1,21 @@
+body {
+  background-color: bisque;
+  background-image: url("https://northernvirginiamag.com/wp-content/uploads/2020/08/movie-popcorn.jpg");
+  
+}
 .jumbotron {
   text-align: center;
   font-size: small;
+}
+img {
+  height:100px;
+}
+
+#formOne {
+  color: white;
+}
+#ticketReturn {
+  border: 1px solid white;
+  width: 40%;
+  color: bisque;
 }
