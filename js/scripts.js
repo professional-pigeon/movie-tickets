@@ -15,20 +15,40 @@ function Ticket (movieInput, timeInput, ageInput, price) {
   this.price = price
 }
 
-
+let movieArray = []
 let Titanic = new Movie("Titanic", "8:15", "12:00", "2:30", "6:00")
+let quietPlace = new Movie("A Quiet Place 2", "8:15", "12:00", "2:30", "6:00")
+let fastFurious = new Movie("Fast and Furious 9", "8:15", "12:30", "3:00", "6:30")
+
+movieArray.push(Titanic)
+movieArray.push(quietPlace)
+movieArray.push(fastFurious)
+
+
 
 //User-Interface Logic
+function attachMovieListeners(movieName) {
+  $("body").on('click', 'h5', function() {
+    let movieKeys = Object.keys(movieName);
+    let movieString = "";
+    movieKeys.forEach(function(key) {
+    movieString = movieString.concat(Titanic[key] + "\n"); 
+    });
+    $("h6").text(movieString)
+  });
+};
 
 
-// function attachContactListeners() {
-//   $('ol#ticketReturn').on('click', 'li', function() {
-//     coolTicket.hide();
-//   })
-//   }
+function attachContactListeners() {
+  $('ol#ticketReturn').on('click', 'li', function() {
+    
+  })
+  }
 
 $(document).ready(function() { 
-  
+  attachContactListeners();
+  movieArray.forEach(function() {
+    attachMovieListeners();
   $("button#button1").click(function() {
     const ticketPrice = 8;
     let newTicketPrice = 0;
@@ -48,7 +68,7 @@ $(document).ready(function() {
     let ticketString = "";
     
     ticketKeys.forEach(function(key){
-      ticketString = ticketString.concat(key + ": " + coolTicket[key] + " \n");
+      ticketString = ticketString.concat(key + ": " + coolTicket[key] + "<br>");
       });
     $('#ticketOutput').append("<li>" + ticketString + "</li>")
   })
@@ -56,7 +76,7 @@ $(document).ready(function() {
   let movieKeys = Object.keys(Titanic);
   let movieString = "";
   movieKeys.forEach(function(key) {
-  movieString = movieString.concat(key + ": " + Titanic[key] + "\n"); 
+  movieString = movieString.concat(": " + Titanic[key] + "<br>"); 
   });
-  $("ul").prepend("<li>" + movieString + "</li>")
+
 });
